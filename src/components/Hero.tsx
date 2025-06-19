@@ -1,48 +1,109 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { Link as ScrollLink } from 'react-scroll'
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#090D1F] overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-[#0B0E13] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* LEWA: ZDJĘCIE */}
-          <div className="w-full md:w-1/2 flex justify-center">
-            <img
-              src="/images/ja.png"
-              alt="Kacper Mruk"
-              className="rounded-2xl shadow-2xl max-w-xs md:max-w-sm lg:max-w-md object-cover border-4 border-[#33C3FF]"
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full md:w-1/2 flex justify-center relative"
+          >
+            {/* Neonowa poświata */}
+            <div className="absolute inset-0 bg-[#00BFFF] opacity-10 blur-3xl rounded-full" />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00BFFF]/20 to-transparent opacity-50 rounded-2xl" />
+              <Image
+                src="/images/ja.png"
+                alt="Kacper Mruk"
+                width={500}
+                height={600}
+                className="rounded-2xl shadow-2xl object-cover border border-[#00BFFF]/20 filter grayscale hover:grayscale-0 transition-all duration-500"
+              />
+              {/* Neonowa ramka */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/30 shadow-[0_0_30px_#00BFFF40]" />
+            </div>
+          </motion.div>
+
           {/* PRAWA: TEKST */}
-          <div className="w-full md:w-1/2 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="bg-[#101426]/80 rounded-2xl shadow-2xl p-8 md:p-12 w-full"
-            >
-              <p className="text-lg text-primary-300 mb-2">Cześć, nazywam się</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-                <span className="block text-[#33C3FF] drop-shadow-[0_2px_12px_#33C3FF99]">Kacper Mruk</span>
-                <span className="block mt-2 text-white">
-                  i pokażę Ci jak w XXI wieku korzystać z internetu<br />
-                  i dzięki niemu zarabiać potężne pieniądze!
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full md:w-1/2"
+          >
+            <div className="space-y-6">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-lg text-[#00BFFF] font-medium tracking-wider"
+              >
+                Cześć, nazywam się
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold"
+              >
+                <span className="bg-gradient-to-r from-[#00BFFF] to-[#00FFFF] bg-clip-text text-transparent drop-shadow-[0_0_10px_#00BFFF40]">
+                  Kacper Mruk
                 </span>
-              </h1>
-              <p className="text-lg text-primary-100 mb-8">
-                Spędziłem kilka lat, aby znaleźć odpowiedni system, który pozwolił mi stać się niezależnym czasowo oraz geograficznie. Zanim przejdę do sedna poznaj mnie bliżej!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="bg-[#33C3FF] text-[#090D1F] px-8 py-4 rounded-xl text-lg font-bold border-2 border-[#33C3FF] hover:bg-transparent hover:text-[#33C3FF] transition-all transform hover:-translate-y-1 hover:shadow-[0_0_24px_#33C3FF99] shadow-xl">
-                  Moja historia
-                </button>
-                <button className="bg-transparent border-2 border-[#33C3FF] text-[#33C3FF] px-8 py-4 rounded-xl text-lg font-bold hover:bg-[#33C3FF] hover:text-[#090D1F] transition-all transform hover:-translate-y-1 hover:shadow-[0_0_24px_#33C3FF99] shadow-xl">
-                  Współpracuj ze mną
-                </button>
-              </div>
-            </motion.div>
-          </div>
+                <span className="block mt-4 text-white leading-tight">
+                  i pokażę Ci w prosty sposób, jak zrozumieć trading oraz jak dzięki tej umiejętności zarabiać potężne pieniądze!
+                </span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="text-lg text-gray-300 max-w-2xl"
+              >
+                Spędziłem blisko 5 lat, aby opracować odpowiedni system, który pozwolił mi stać się niezależnym czasowo oraz geograficznie. Zanim przejdę do sedna poznaj mnie bliżej!
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                className="flex flex-col sm:flex-row gap-4 pt-6"
+              >
+                {/* Główny CTA */}
+                <ScrollLink
+                  to="what-is-tp"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-[#0B0E13] bg-[#00BFFF] rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_#00BFFF60] border-2 border-[#00BFFF] cursor-pointer"
+                >
+                  Zobacz ofertę
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                    className="ml-2"
+                  >
+                    →
+                  </motion.span>
+                </ScrollLink>
+                {/* Drugi CTA */}
+                <a
+                  href="https://t.me/takeprofitnewsy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-transparent rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_#00BFFF40] border-2 border-[#00BFFF] hover:bg-[#00BFFF]/10"
+                >
+                  Darmowa grupa
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
