@@ -16,28 +16,28 @@ const timelineData = [
     year: '2020',
     title: 'Pierwsze kroki w tradingu',
     description: 'W wieku 18 lat trafiłem na Forex. Wiedziałem, że to może być droga do wolności. Zacząłem grać na demo, po godzinach uczyłem się wszystkiego na własną rękę, oglądając rynki i testując strategie.',
-    image: '/images/pierwszepozycje.png',
+    image: '/images/pierwszepozycje.PNG',
     icon: '💸'
   },
   {
     year: '2021',
     title: 'McDonald\'s i programowanie',
     description: 'Pracowałem na porannych zmianach w McDonald\'s, żeby mieć popołudnia wolne na naukę. Po każdej zmianie jechałem do kawiarni, odpalałem laptopa i uczyłem się programowania. Codziennie. 7 dni w tygodniu. Powtarzałem w głowie: Stać cię na więcej, Kacper.',
-    image: '/images/mcd2.png',
+    image: '/images/mcd2.PNG',
     icon: '💻'
   },
   {
     year: '2021-2022',
     title: 'Punkt przełomowy',
     description: 'Znalazłem gościa, który uczył tradingu i dostał prowizję za to, że ktoś wpłacił depozyt. Od razu zapytałem brokera: Czy też mogę tak robić? Usłyszałem: Tak, przyjedź do Warszawy. Wsiadłem w auto o 1 w nocy, jechałem 500 km i o 9:00 byłem w biurze. To była najważniejsza decyzja mojego życia.',
-    image: '/images/wwa.png',
+    image: '/images/wwa.PNG',
     icon: '🚗'
   },
   {
     year: '2022-2024',
     title: 'Praca w IT',
     description: 'Zacząłem pracę jako informatyk w państwowej spółce – zarządzałem 200 stanowiskami, ale wiedziałem, że trading daje mi więcej: swobodę, skalę, emocje i pieniądze. Zacząłem zarabiać więcej niż na etacie.',
-    image: '/images/biuro.jpg',
+    image: '/images/biuro.JPG',
     icon: '💼'
   },
   {
