@@ -6,7 +6,6 @@ import BrokerBanner from '@/components/BrokerBanner'
 import AboutFounder from '@/components/AboutFounder'
 import Testimonials from '@/components/Testimonials'
 import InstagramCTA from '@/components/InstagramCTA'
-import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 
 export default function Home() {
@@ -21,7 +20,6 @@ export default function Home() {
       <AboutFounder />
       <Testimonials />
       <InstagramCTA />
-      <Footer />
     </>
   )
 }

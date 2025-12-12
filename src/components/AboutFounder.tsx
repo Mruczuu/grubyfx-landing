@@ -39,7 +39,7 @@ const AboutFounder = () => {
           >
             <div className="relative">
               <img
-                src="/images/Ja.png"
+                src="/images/profilowe.PNG"
                 alt="Kacper Mruk"
                 className="rounded-3xl shadow-2xl max-w-sm w-full border-4 border-[#33C3FF]/30"
               />
