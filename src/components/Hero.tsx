@@ -1,5 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { Link as ScrollLink } from 'react-scroll'
 
 const Hero = () => {
   return (
