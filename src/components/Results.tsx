@@ -52,7 +52,7 @@ const Results = () => {
       value: '11',
       label: 'Narzędzi w jednej aplikacji'
     }
-  }, [current])
+  ]
 
   const goToSlide = (index: number) => {
     setCurrent(index)
