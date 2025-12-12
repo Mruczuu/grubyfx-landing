@@ -1,12 +1,12 @@
 import Hero from '@/components/Hero'
-import History from '@/components/History'
-import WhatIsGC from '@/components/WhatIsGC'
+import AppFeatures from '@/components/AppFeatures'
 import Results from '@/components/Results'
-import HowItWorks from '@/components/HowItWorks'
-import WhyUs from '@/components/WhyUs'
+import DownloadSection from '@/components/DownloadSection'
+import BrokerBanner from '@/components/BrokerBanner'
+import AboutFounder from '@/components/AboutFounder'
 import Testimonials from '@/components/Testimonials'
-import Requirements from '@/components/Requirements'
-import ContactForm from '@/components/ContactForm'
+import InstagramCTA from '@/components/InstagramCTA'
+import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 
 export default function Home() {
@@ -14,14 +14,14 @@ export default function Home() {
     <>
       <Navigation />
       <Hero />
-      <History />
-      <WhatIsGC />
+      <AppFeatures />
       <Results />
-      <HowItWorks />
-      <WhyUs />
+      <DownloadSection />
+      <BrokerBanner />
+      <AboutFounder />
       <Testimonials />
-      <Requirements />
-      <ContactForm />
+      <InstagramCTA />
+      <Footer />
     </>
   )
 }

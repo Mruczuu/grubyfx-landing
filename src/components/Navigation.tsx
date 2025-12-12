@@ -15,13 +15,10 @@ const Navigation = () => {
   }, [])
 
   const menuItems = [
-    'Moja historia',
-    'Czym jest GC?',
-    'Moje wyniki',
-    'Jak to działa?',
-    'Dlaczego warto?',
-    'Opinie',
-    'Wymagania'
+    'Funkcje',
+    'Wyniki',
+    'O mnie',
+    'Opinie'
   ]
 
   return (
@@ -29,14 +26,14 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 shadow-lg rounded-b-xl ${
-        isScrolled ? 'bg-dark bg-opacity-95 shadow-2xl backdrop-blur-md' : 'bg-dark bg-opacity-80'
+        isScrolled ? 'bg-[#090D1F] bg-opacity-95 shadow-2xl backdrop-blur-md' : 'bg-[#090D1F] bg-opacity-80'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <a href="#" className="text-2xl font-bold text-primary-400 tracking-widest">
-              LOGO
+            <a href="#" className="text-2xl font-bold text-[#33C3FF] tracking-widest uppercase">
+              Take Profit
             </a>
           </div>
           <div className="hidden md:flex items-center space-x-6">
@@ -44,14 +41,14 @@ const Navigation = () => {
               <a
                 key={index}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-white hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-white hover:text-[#33C3FF] px-3 py-2 text-sm font-medium transition-colors"
               >
                 {item}
               </a>
             ))}
-            <button className="bg-primary-600 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-primary-400 transition-all transform hover:-translate-y-0.5 hover:shadow-xl shadow-md">
-              Współpracuj ze mną
-            </button>
+            <a href="#pobierz" className="bg-[#33C3FF] text-[#090D1F] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#33C3FF]/90 transition-all transform hover:-translate-y-0.5 hover:shadow-xl shadow-md">
+              Pobierz aplikację
+            </a>
           </div>
         </div>
       </div>

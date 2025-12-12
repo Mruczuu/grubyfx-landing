@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Landing Page",
-  description: "Twoja droga do sukcesu",
+  title: "Take Profit Traders App - Pierwsza bezpłatna aplikacja dla traderów w Polsce",
+  description: "Wszystkie najważniejsze narzędzia tradera w jednym miejscu. Kalendarz makroekonomiczny, sygnały, Trading Journal, FedWatch i więcej. Całkowicie bezpłatnie.",
 };
 
 export default function RootLayout({
