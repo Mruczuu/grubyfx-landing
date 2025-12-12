@@ -26,9 +26,9 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="inline-block mb-4"
+                className="inline-block mb-4 max-w-full"
               >
-                <span className="bg-[#33C3FF]/20 text-[#33C3FF] px-4 py-2 rounded-full text-sm font-semibold border border-[#33C3FF]/30">
+                <span className="bg-[#33C3FF]/20 text-[#33C3FF] px-3 py-2 sm:px-4 rounded-full text-xs sm:text-sm font-semibold border border-[#33C3FF]/30 whitespace-normal inline-block max-w-full">
                   Pierwsza bezpłatna aplikacja dla traderów w Polsce
                 </span>
               </motion.div>
