@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useState, useEffect } from 'react'
 
@@ -159,52 +159,50 @@ const AppFeatures = () => {
           </button>
 
           {/* Cards grid */}
-          <div className="px-8 md:px-16">
-            <motion.div
-              key={currentPage}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-            >
-              {currentFeatures.map((feature, index) => (
-                <motion.div
-                  key={`${currentPage}-${index}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="group"
-                >
-                  <div className="h-full bg-gradient-to-br from-[#101426]/80 to-[#0A1120]/80 backdrop-blur-sm border border-[#33C3FF]/20 rounded-2xl p-6 hover:border-[#33C3FF]/40 transition-all duration-300 hover:shadow-[0_0_30px_#33C3FF20] hover:-translate-y-1">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-2xl mb-4 shadow-lg`}>
-                      {feature.icon}
+          <div className="px-8 md:px-16 min-h-[280px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentPage}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+              >
+                {currentFeatures.map((feature, index) => (
+                  <div
+                    key={`${currentPage}-${index}`}
+                    className="group"
+                  >
+                    <div className="h-full bg-gradient-to-br from-[#101426]/80 to-[#0A1120]/80 backdrop-blur-sm border border-[#33C3FF]/20 rounded-2xl p-6 hover:border-[#33C3FF]/40 transition-all duration-300 hover:shadow-[0_0_30px_#33C3FF20] hover:-translate-y-1">
+                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-2xl mb-4 shadow-lg`}>
+                        {feature.icon}
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#33C3FF] transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#33C3FF] transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* Page indicators */}
-          <div className="flex justify-center mt-8 gap-2">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentPage(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentPage 
-                    ? 'bg-[#33C3FF] w-8 shadow-[0_0_10px_#33C3FF]' 
-                    : 'bg-[#33C3FF]/30 hover:bg-[#33C3FF]/50'
-                }`}
+          {/* Progress bar + counter */}
+          <div className="flex flex-col items-center gap-3 mt-6">
+            <div className="text-gray-400 text-sm">
+              {currentPage + 1} / {totalPages}
+            </div>
+            <div className="w-32 h-1 bg-[#33C3FF]/20 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-[#33C3FF] rounded-full"
+                animate={{ width: `${((currentPage + 1) / totalPages) * 100}%` }}
+                transition={{ duration: 0.2 }}
               />
-            ))}
+            </div>
           </div>
         </div>
       </div>

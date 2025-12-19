@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 
@@ -119,13 +119,24 @@ const Results = () => {
         >
           <div className="relative max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#090D1F] border border-[#33C3FF]/20">
-              <Image
-                src={results[current].src}
-                alt={results[current].alt}
-                fill
-                className="object-contain"
-                priority
-              />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={results[current].src}
+                    alt={results[current].alt}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
             
             {/* Navigation buttons */}
@@ -148,18 +159,19 @@ const Results = () => {
               </svg>
             </button>
 
-            {/* Dots indicator */}
-            <div className="flex justify-center gap-2 mt-4">
-              {results.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === current ? 'bg-[#33C3FF] w-8' : 'bg-[#33C3FF]/30'
-                  }`}
-                  aria-label={`Przejdź do slajdu ${index + 1}`}
+            {/* Progress bar + counter */}
+            <div className="flex flex-col items-center gap-3 mt-4">
+              <div className="text-gray-400 text-sm">
+                {current + 1} / {results.length}
+              </div>
+              <div className="w-48 h-1 bg-[#33C3FF]/20 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-[#33C3FF] rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${((current + 1) / results.length) * 100}%` }}
+                  transition={{ duration: 0.3 }}
                 />
-              ))}
+              </div>
             </div>
           </div>
         </motion.div>
