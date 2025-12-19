@@ -4,32 +4,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 
-// Tablica z wynikami klientów
-const results = [
-  { src: '/wyniki/photo_2025-12-19 20.42.42.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.42.50.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.42.52.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.42.54.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.42.59.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.02.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.04.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.07.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.09.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.11.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.13.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.15.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-  { src: '/wyniki/photo_2025-12-19 20.43.17.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
-]
+type ResultImage = {
+  src: string
+  alt: string
+}
 
 const AUTO_SLIDE_INTERVAL = 4000 // ms
 
 const Results = () => {
+  const [results, setResults] = useState<ResultImage[]>([])
   const [current, setCurrent] = useState(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  // Fetch images from API
+  useEffect(() => {
+    fetch('/api/wyniki')
+      .then(res => res.json())
+      .then(data => setResults(data))
+      .catch(() => setResults([]))
+  }, [])
 
   const stats = [
     {
@@ -46,23 +43,30 @@ const Results = () => {
     }
   ]
 
-  const goToSlide = (index: number) => {
-    setCurrent(index)
+  const resetAutoSlide = () => {
+    if (timeoutRef.current) {
+      clearInterval(timeoutRef.current)
+    }
+    timeoutRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % results.length)
+    }, AUTO_SLIDE_INTERVAL)
   }
 
   const goToPrevious = () => {
     setCurrent((prev) => (prev - 1 + results.length) % results.length)
+    resetAutoSlide()
   }
 
   const goToNext = () => {
     setCurrent((prev) => (prev + 1) % results.length)
+    resetAutoSlide()
   }
 
   // Auto-slide effect
   useEffect(() => {
-    if (inView) {
+    if (inView && results.length > 0) {
       timeoutRef.current = setInterval(() => {
-        goToNext()
+        setCurrent((prev) => (prev + 1) % results.length)
       }, AUTO_SLIDE_INTERVAL)
     }
 
@@ -71,7 +75,7 @@ const Results = () => {
         clearInterval(timeoutRef.current)
       }
     }
-  }, [inView])
+  }, [inView, results.length])
 
   return (
     <section id="wyniki" className="py-20 bg-gradient-to-b from-[#090D1F] to-[#0A1120] overflow-x-hidden relative">
@@ -111,70 +115,72 @@ const Results = () => {
         </div>
 
         {/* Gallery section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="relative"
-        >
-          <div className="relative max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#090D1F] border border-[#33C3FF]/20">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={results[current].src}
-                    alt={results[current].alt}
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            
-            {/* Navigation buttons */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#33C3FF]/20 hover:bg-[#33C3FF]/40 text-white p-3 rounded-full backdrop-blur-sm transition-all"
-              aria-label="Poprzednie zdjęcie"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#33C3FF]/20 hover:bg-[#33C3FF]/40 text-white p-3 rounded-full backdrop-blur-sm transition-all"
-              aria-label="Następne zdjęcie"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+        {results.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative"
+          >
+            <div className="relative max-w-4xl mx-auto">
+              <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#090D1F] border border-[#33C3FF]/20">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={results[current].src}
+                      alt={results[current].alt}
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              
+              {/* Navigation buttons */}
+              <button
+                onClick={goToPrevious}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#33C3FF]/20 hover:bg-[#33C3FF]/40 text-white p-3 rounded-full backdrop-blur-sm transition-all"
+                aria-label="Poprzednie zdjęcie"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#33C3FF]/20 hover:bg-[#33C3FF]/40 text-white p-3 rounded-full backdrop-blur-sm transition-all"
+                aria-label="Następne zdjęcie"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
 
-            {/* Progress bar + counter */}
-            <div className="flex flex-col items-center gap-3 mt-4">
-              <div className="text-gray-400 text-sm">
-                {current + 1} / {results.length}
-              </div>
-              <div className="w-48 h-1 bg-[#33C3FF]/20 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-[#33C3FF] rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${((current + 1) / results.length) * 100}%` }}
-                  transition={{ duration: 0.3 }}
-                />
+              {/* Progress bar + counter */}
+              <div className="flex flex-col items-center gap-3 mt-4">
+                <div className="text-gray-400 text-sm">
+                  {current + 1} / {results.length}
+                </div>
+                <div className="w-48 h-1 bg-[#33C3FF]/20 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-[#33C3FF] rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${((current + 1) / results.length) * 100}%` }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   )
