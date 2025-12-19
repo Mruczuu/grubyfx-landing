@@ -6,32 +6,19 @@ import Image from 'next/image'
 
 // Tablica z wynikami klientów
 const results = [
-  { src: '/wyniki/photo_2025-05-19_11-01-19.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-05-23_08-07-52.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-05-26_08-40-41.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-05-28_16-24-49.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-05-29_15-50-19.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-05-29_21-27-11.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-05-29_21-33-32.jpg', alt: 'Wynik tradingowy - maj 2025' },
-  { src: '/wyniki/photo_2025-06-03_12-02-47.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-04_15-12-43.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-04_19-06-19.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-04_19-13-23.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-04_21-51-27.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-05_11-32-13.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-09_05-41-20.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-09_21-33-13.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-10_11-08-59.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-11_06-31-49.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-11_13-22-18.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-11_15-29-20.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-13_12-39-38.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-16_08-43-25.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-16_09-09-14.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-16_15-13-20.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-17_09-27-48.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-18_07-38-39.jpg', alt: 'Wynik tradingowy - czerwiec 2025' },
-  { src: '/wyniki/photo_2025-06-19_09-15-01.jpg', alt: 'Wynik tradingowy - czerwiec 2025' }
+  { src: '/wyniki/photo_2025-12-19 20.42.42.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.42.50.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.42.52.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.42.54.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.42.59.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.02.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.04.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.07.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.09.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.11.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.13.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.15.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
+  { src: '/wyniki/photo_2025-12-19 20.43.17.jpeg', alt: 'Wynik tradingowy - grudzień 2025' },
 ]
 
 const AUTO_SLIDE_INTERVAL = 4000 // ms
@@ -97,7 +84,7 @@ const Results = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            <span className="uppercase">TAKE PROFIT</span> w liczbach
+            Wyniki użytkowników <span className="uppercase">TAKE PROFIT</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Sprawdź, jak rośnie społeczność traderów korzystających z naszej aplikacji
