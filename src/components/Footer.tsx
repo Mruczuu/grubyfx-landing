@@ -14,7 +14,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/kacperfxtp/"
+                href="https://www.instagram.com/grubyfx/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#33C3FF]/20 rounded-lg flex items-center justify-center hover:bg-[#33C3FF]/30 transition-all"
@@ -46,18 +46,13 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Kontakt</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#o-mnie" className="text-gray-400 hover:text-[#33C3FF] transition-colors">
-                  O nas
-                </a>
-              </li>
-              <li>
                 <a href="#opinie" className="text-gray-400 hover:text-[#33C3FF] transition-colors">
                   Opinie
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@takeprofitplatform.com" className="text-gray-400 hover:text-[#33C3FF] transition-colors">
-                  Email
+                <a href="https://t.me/GRUBYFXADMINISTRACJA" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#33C3FF] transition-colors">
+                  Skontaktuj się
                 </a>
               </li>
             </ul>
@@ -66,7 +61,7 @@ const Footer = () => {
 
         <div className="border-t border-[#33C3FF]/20 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Take Profit Traders App. Wszystkie prawa zastrzeżone.
+            © {new Date().getFullYear()} TAKE PROFIT GrubyFX - Wszystkie prawa zastrzeżone.
           </p>
         </div>
       </div>

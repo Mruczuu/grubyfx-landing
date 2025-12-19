@@ -73,15 +73,34 @@ const DownloadSection = () => {
             </motion.a>
           </div>
 
+          {/* Promo code warning */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="inline-block bg-gradient-to-r from-[#33C3FF]/20 to-[#33C3FF]/10 border border-[#33C3FF]/30 rounded-2xl px-8 py-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="max-w-2xl mx-auto"
           >
-            <p className="text-lg text-gray-300">
-              <span className="text-[#33CFF] font-bold">100% bezpłatna</span> • Bez rejestracji • Bez ukrytych kosztów
+            <p className="text-sm text-gray-300 leading-relaxed mb-4">
+              <span className="text-yellow-400 font-bold">⚠️ WAŻNE:</span>{' '}
+              Zarejestruj się z kodem promocyjnym{' '}
+              <span className="bg-[#33C3FF]/20 text-[#33C3FF] px-2 py-1 rounded font-mono font-bold">"GRUBYFX"</span>{' '}
+              aby otrzymać bezpłatny dostęp —{' '}
+              <span className="text-red-400 font-semibold">w przeciwnym przypadku oferta będzie nieaktualna.</span>
             </p>
+            <motion.a
+              href="https://t.me/GRUBYFXADMINISTRACJA"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="block w-full max-w-md mx-auto bg-gradient-to-r from-[#33C3FF] to-[#00A8E8] text-[#090D1F] py-4 px-8 rounded-2xl text-lg font-black shadow-[0_0_30px_rgba(51,195,255,0.5)] hover:shadow-[0_0_50px_rgba(51,195,255,0.8)] transition-all duration-300 text-center cursor-pointer"
+            >
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-xl">💬</span>
+                <span className="uppercase tracking-wider">Skontaktuj się teraz!</span>
+                <span className="text-xl">💬</span>
+              </div>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

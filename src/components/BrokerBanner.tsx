@@ -73,7 +73,9 @@ const BrokerBanner = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#00A8E8] to-[#33C3FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </motion.a>
                 <motion.a
-                  href="#o-mnie"
+                  href="https://t.me/GRUBYFXADMINISTRACJA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   className="relative flex items-center justify-center bg-transparent border-2 border-[#33C3FF] text-[#33C3FF] px-10 py-4 rounded-2xl text-lg font-bold hover:bg-[#33C3FF]/10 hover:border-[#33C3FF]/80 transition-all duration-300 shadow-[0_8px_32px_rgba(51,195,255,0.2)] hover:shadow-[0_12px_40px_rgba(51,195,255,0.4)] backdrop-blur-sm whitespace-nowrap flex-1"

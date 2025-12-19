@@ -3,7 +3,6 @@ import AppFeatures from '@/components/AppFeatures'
 import Results from '@/components/Results'
 import DownloadSection from '@/components/DownloadSection'
 import BrokerBanner from '@/components/BrokerBanner'
-import AboutFounder from '@/components/AboutFounder'
 import Testimonials from '@/components/Testimonials'
 import InstagramCTA from '@/components/InstagramCTA'
 import Navigation from '@/components/Navigation'
@@ -13,11 +12,10 @@ export default function Home() {
     <>
       <Navigation />
       <Hero />
-      <AppFeatures />
       <Results />
       <DownloadSection />
+      <AppFeatures />
       <BrokerBanner />
-      <AboutFounder />
       <Testimonials />
       <InstagramCTA />
     </>

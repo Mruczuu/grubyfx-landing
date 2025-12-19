@@ -22,7 +22,6 @@ const Navigation = () => {
   const menuItems = [
     'Funkcje',
     'Wyniki',
-    'O mnie',
     'Opinie'
   ]
 
@@ -37,8 +36,9 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <a href="#" className="text-2xl font-bold text-[#33C3FF] tracking-widest uppercase">
-              Take Profit
+            <a href="#" className="flex flex-col leading-tight items-start">
+              <span className="text-2xl font-bold text-[#33C3FF] tracking-widest uppercase">Take Profit</span>
+              <span className="text-base font-extrabold text-white tracking-[0.25em] uppercase">GRUBYFX</span>
             </a>
           </div>
           <div className="hidden md:flex items-center space-x-6">
@@ -51,8 +51,8 @@ const Navigation = () => {
                 {item}
               </a>
             ))}
-            <a href="#pobierz" className="bg-[#33C3FF] text-[#090D1F] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#33C3FF]/90 transition-all transform hover:-translate-y-0.5 hover:shadow-xl shadow-md">
-              Pobierz aplikację
+            <a href="https://t.me/GRUBYFXADMINISTRACJA" target="_blank" rel="noopener noreferrer" className="bg-[#33C3FF] text-[#090D1F] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#33C3FF]/90 transition-all transform hover:-translate-y-0.5 hover:shadow-xl shadow-md">
+              Dołącz za darmo!
             </a>
           </div>
         </div>

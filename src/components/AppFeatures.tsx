@@ -124,21 +124,6 @@ const AppFeatures = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-center mt-16"
-        >
-          <div className="inline-block bg-gradient-to-r from-[#33C3FF]/20 to-[#33C3FF]/10 border border-[#33C3FF]/30 rounded-2xl px-8 py-6">
-            <p className="text-2xl font-bold text-white mb-2">
-              Wszystko to jest <span className="text-[#33C3FF]">całkowicie bezpłatne</span>
-            </p>
-            <p className="text-gray-300">
-              Bez ukrytych kosztów, bez subskrypcji, bez limitów
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

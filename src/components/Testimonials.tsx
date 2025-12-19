@@ -88,13 +88,18 @@ const Testimonials = () => {
           className="text-center mt-16"
         >
           <motion.a
-            href="#pobierz"
-            whileHover={{ scale: 1.05, y: -2 }}
+            href="https://t.me/GRUBYFXADMINISTRACJA"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="relative inline-block bg-gradient-to-r from-[#33C3FF] to-[#00A8E8] text-[#090D1F] px-10 py-4 rounded-2xl text-lg font-bold shadow-[0_8px_32px_rgba(51,195,255,0.4)] hover:shadow-[0_12px_40px_rgba(51,195,255,0.6)] transition-all duration-300 text-center overflow-hidden group"
+            className="inline-block bg-gradient-to-r from-[#33C3FF] to-[#00A8E8] text-[#090D1F] py-5 px-12 rounded-2xl text-xl font-black shadow-[0_0_30px_rgba(51,195,255,0.5)] hover:shadow-[0_0_50px_rgba(51,195,255,0.8)] transition-all duration-300 text-center cursor-pointer"
           >
-            <span className="relative z-10">Dołącz do społeczności</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00A8E8] to-[#33C3FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <span className="uppercase tracking-wider">Dołącz za darmo!</span>
+              <span className="text-2xl">🚀</span>
+            </div>
           </motion.a>
         </motion.div>
       </div>
