@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "TAKE PROFIT GRUBYFX",
     images: [
       {
-        url: "/images/profilowe.PNG",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "TAKE PROFIT GRUBYFX",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TAKE PROFIT GRUBYFX - Dołącz za darmo!",
     description: "Dołącz do 1000+ traderów! Sygnały, analizy, społeczność - wszystko za darmo.",
-    images: ["/images/profilowe.PNG"],
+    images: ["/og-image.png"],
   },
 };
 
