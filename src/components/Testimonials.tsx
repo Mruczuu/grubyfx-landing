@@ -10,21 +10,21 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      content: 'Najlepsza aplikacja dla traderów w Polsce! Wszystko w jednym miejscu, zupełnie za darmo. Kalendarz makroekonomiczny i sygnały to game changer.',
-      author: 'Michał K.',
+      content: 'Jestem z Grubyfx ponad tydzień. Moje depo to 500$. Po pierwszym tygodniu wypłata 750$. Dziś poniedziałek początek drugiego tygodnia a już 600$ zaksięgowane 🤯. Grubyfx to odpowiednia osoba na odpowiednim miejscu. Jedyny w swoim rodzaju, i jedyny co daje realnie zarobić.',
+      author: 'Członek społeczności',
       role: 'Trader',
       rating: 5
     },
     {
-      content: 'Używam aplikacji od miesiąca i jestem zachwycony. Trading Journal pomaga mi śledzić wszystkie transakcje, a quizy są świetnym sposobem na naukę.',
-      author: 'Anna W.',
-      role: 'Początkujący trader',
+      content: 'Wczoraj i dziś 🤯🤯🤯 Słów mi brak 🤯🤯🤯 Wczoraj myślałam że to matrix że to nie może być prawda a dziś to już science-fiction 🤣🤣🤣 W jeden dzień tak konto mi urosło 🤯 2 tygodnie z tobą z 550$ do 9K 🤯 Dziękuję z całego serca 🙏🙏🙏',
+      author: 'Członkini społeczności',
+      role: 'Traderka',
       rating: 5
     },
     {
-      content: 'FedWatch i kalkulator pozycji to narzędzia, których brakowało na polskim rynku. Dzięki Take Profit mój trading stał się bardziej profesjonalny.',
-      author: 'Piotr S.',
-      role: 'Zaawansowany trader',
+      content: 'Hejka ja swoją przygodę z tradingiem z Grubym zacząłem z depozytem 250$ i po dwóch tygodniach korzystając tylko i wyłącznie z Grubego sygnałów i grając zgodnie z jego strategią wyciągnąłem ok 2500$ 🤯🤯 wydaje się nie możliwe, a jednak z Grubym to jest możliwe 😎😎 Gruby jest królem w tym co robi, a szlachta z nim się bawi 😉 pozdro',
+      author: 'Członek społeczności',
+      role: 'Trader',
       rating: 5
     }
   ]
@@ -43,7 +43,7 @@ const Testimonials = () => {
             Co mówią użytkownicy
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Zobacz, co mówią traderzy korzystający z Take Profit Traders App
+            Zobacz, co mówią traderzy korzystający z GrubyFX
           </p>
         </motion.div>
 
