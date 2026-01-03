@@ -43,7 +43,7 @@ const Testimonials = () => {
             Co mówią użytkownicy
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Zobacz, co mówią traderzy korzystający z GrubyFX
+            Zobacz, co mówią traderzy korzystający z współpracy z GrubyFX
           </p>
         </motion.div>
 
