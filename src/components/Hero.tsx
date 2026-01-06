@@ -2,10 +2,19 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Link as ScrollLink } from 'react-scroll'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const Hero = () => {
   const [joinCount, setJoinCount] = useState(37)
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(!isMuted)
+    }
+  }
 
   useEffect(() => {
     // Pierwszy increment po 10 sekundach
@@ -161,6 +170,7 @@ const Hero = () => {
                       {/* App screen with video */}
                       <div className="aspect-[9/19.5] bg-[#090D1F] relative overflow-hidden">
                         <video
+                          ref={videoRef}
                           autoPlay
                           loop
                           muted
@@ -169,17 +179,24 @@ const Hero = () => {
                         >
                           <source src="/takeprofit-app.mov" type="video/quicktime" />
                           <source src="/takeprofit-app.mov" type="video/mp4" />
-                          {/* Fallback jeśli wideo nie załaduje się */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#33C3FF]/10 to-[#090D1F] flex items-center justify-center">
-                            <div className="text-center p-8">
-                              <div className="w-24 h-24 bg-[#33C3FF]/20 rounded-3xl mx-auto mb-4 flex items-center justify-center">
-                                <span className="text-4xl">📱</span>
-                              </div>
-                              <p className="text-[#33C3FF] font-bold text-xl mb-2">TAKE PROFIT</p>
-                              <p className="text-gray-400 text-sm">TRADER'S APP</p>
-                            </div>
-                          </div>
                         </video>
+                        {/* Mute/Unmute button */}
+                        <button
+                          onClick={toggleMute}
+                          className="absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm transition-all z-10"
+                          aria-label={isMuted ? 'Włącz dźwięk' : 'Wycisz'}
+                        >
+                          {isMuted ? (
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                            </svg>
+                          ) : (
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                            </svg>
+                          )}
+                        </button>
                       </div>
                     </div>
                   </div>
