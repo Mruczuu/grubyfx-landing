@@ -64,11 +64,12 @@ const Hero = () => {
               </motion.div>
               
               <h1 className="font-extrabold mb-6 leading-tight">
-                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#33C3FF] drop-shadow-[0_2px_12px_#33C3FF99] mb-2 tracking-wide">
-                  Aplikacja mobilna <span className="font-black">TAKE PROFIT</span>
+                <span className="block text-[#33C3FF] drop-shadow-[0_2px_12px_#33C3FF99] mb-2 tracking-wide">
+                  <span className="block text-xl sm:text-2xl md:text-3xl">Aplikacja mobilna</span>
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black">TAKE PROFIT</span>
                 </span>
                 <span className="block text-lg sm:text-xl md:text-2xl text-white tracking-wider">
-                  Prezentuje tradera GRUBYFX
+                  GRUBYFX - Trader
                 </span>
               </h1>
               
