@@ -63,12 +63,12 @@ const Hero = () => {
                 </span>
               </motion.div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-                <span className="block text-[#33C3FF] drop-shadow-[0_2px_12px_#33C3FF99] mb-2">
-                  TAKE PROFIT
+              <h1 className="font-extrabold mb-6 leading-tight">
+                <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#33C3FF] drop-shadow-[0_2px_12px_#33C3FF99] mb-2 tracking-wide">
+                  Aplikacja mobilna <span className="font-black">TAKE PROFIT</span>
                 </span>
-                <span className="block text-white">
-                  GRUBYFX
+                <span className="block text-lg sm:text-xl md:text-2xl text-white tracking-wider">
+                  Prezentuje tradera GRUBYFX
                 </span>
               </h1>
               
@@ -104,7 +104,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="block w-full bg-gradient-to-r from-[#33C3FF] to-[#00A8E8] text-[#090D1F] py-5 px-8 rounded-2xl text-xl font-black shadow-[0_0_30px_rgba(51,195,255,0.5)] hover:shadow-[0_0_50px_rgba(51,195,255,0.8)] transition-all duration-300 text-center cursor-pointer mb-4 animate-pulse"
+                className="block w-full bg-gradient-to-r from-[#33C3FF] to-[#00A8E8] text-[#090D1F] py-5 px-8 rounded-2xl text-xl font-black shadow-[0_0_30px_rgba(51,195,255,0.5)] hover:shadow-[0_0_50px_rgba(51,195,255,0.8)] transition-all duration-300 text-center cursor-pointer mb-3 animate-pulse"
               >
                 <div className="flex items-center justify-center gap-3">
                   <span className="text-2xl">🚀</span>
@@ -112,6 +112,24 @@ const Hero = () => {
                   <span className="text-2xl">🚀</span>
                 </div>
               </motion.a>
+
+              {/* WhatsApp alternative */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.35 }}
+                className="text-center text-sm mb-4"
+              >
+                <span className="text-gray-400">lub napisz na </span>
+                <a 
+                  href="https://wa.me/48608239443" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-green-400 font-semibold hover:text-green-300 transition-colors underline underline-offset-2"
+                >
+                  💬 WhatsApp
+                </a>
+              </motion.p>
 
               {/* Guarantee */}
               <motion.p
