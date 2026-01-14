@@ -67,6 +67,11 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+        {/* Contentsquare */}
+        <Script 
+          src="https://t.contentsquare.net/uxa/95765d8fe4882.js" 
+          strategy="afterInteractive"
+        />
       </head>
       <body className={inter.className}>
         <SnowEffect />

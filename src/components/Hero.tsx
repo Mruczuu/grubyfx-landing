@@ -123,7 +123,7 @@ const Hero = () => {
               >
                 <span className="text-gray-400">lub napisz na </span>
                 <a 
-                  href="https://wa.me/48608239443" 
+                  href="https://wa.me/48796772549" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-green-400 font-semibold hover:text-green-300 transition-colors underline underline-offset-2"
